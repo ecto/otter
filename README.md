@@ -1,4 +1,4 @@
-![otter](https://i.imgur.com/dujFALo.gif)
+![otter](https://i.imgur.com/cFLjG6A.png)
 
 ## intro
 
