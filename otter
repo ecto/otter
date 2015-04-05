@@ -3,6 +3,15 @@
 (setf *random-state* (make-random-state t))
 (setf *max-int* 128)
 
+(defun print-usage ()
+  (format *standard-output* (concatenate 'string
+    "Usage: otter [command]~%~%"
+    "Commands:~%"
+    "  help                           display this message~%"
+    "  gen [bytes=4096]               generate [bytes] of random data~%"
+    "  enc [input] [pad] [offset=0]   encrypt [input] file with [pad] file starting at [offset] bytes of [pad] file~%"
+    "  dec [input] [pad] [offset=0]   decrypt [input] file with [pad] file starting at [offset] bytes of [pad] file~%")))
+
 (defun encoding-keyword-to-native (encoding)
   (intern (string encoding) (find-package :charset)))
 (defun %string-to-octets (string encoding)
@@ -58,9 +67,9 @@
     (input (second args))
     (pad (third args))
     (offset (fourth args)))
-    (when (null op)
-      (error "must supply operation"))
     (block nil
+      (when (or (null op) (string= op "help"))
+        (return (print-usage)))
       (when (string= op "gen")
         (return (gen input)))
       (when (string= op "enc")
