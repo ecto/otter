@@ -13,20 +13,19 @@
 (defmacro modo (o a b c)
   `(mod (funcall (symbol-function ,o) (mod ,a ,c) (mod ,b ,c)) ,c))
 
-(defun rand (size)
+(defun randlist (size)
   (let ((lst ()))
     (dotimes (i size)
        (setf lst (cons (random *max-int*) lst)))
    lst))
 
-; TODO prints extra byte?
 (defun gen (size-string)
   (when (null size-string)
     (setf size-string "4096"))
   (setf size (parse-integer size-string :junk-allowed t))
   (unless (numberp size)
     (error "size must be a number"))
-  (defvar buffer (rand size))
+  (defvar buffer (randlist size))
   (princ (%octets-to-string (coerce buffer 'vector) *encoding*)))
 
 (defun cry (modop input-path pad-path offset-string)
