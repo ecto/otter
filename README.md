@@ -1,6 +1,4 @@
-one time pad toy
-
-![otter](https://i.imgur.com/RTw97Kq.png)
+![otter](//i.imgur.com/dujFALo.gif)
 
 ## intro
 
