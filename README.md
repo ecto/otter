@@ -1,4 +1,4 @@
-![otter](https://i.imgur.com/cFLjG6A.png)
+<a href="https://github.com/ecto/otter"><img src="https://i.imgur.com/cFLjG6A.png" width="400" alt="a majestic otter" /></a>
 
 ## intro
 
